@@ -3,16 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DemoService } from './services/demo/demo.service';
+import { ClientPageComponent } from './views/components/clients/client-page/client-page.component';
+import { ClientFormComponent } from './views/components/clients/client-form/client-form.component';
+import { SearchFormComponent } from './views/components/search/search-form/search-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ClientPageComponent,
+    ClientFormComponent,
+    SearchFormComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  constructor(public demoservice: DemoService) {
+    this.demoservice.printHello();
+  }
+}
