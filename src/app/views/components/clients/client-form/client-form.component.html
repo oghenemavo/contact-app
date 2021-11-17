@@ -1,6 +1,6 @@
 
 <div class="client-form">
-    <form [formGroup]="clientForm" (ngSubmit)="saveClient()">
+    <form [formGroup]="clientForm" >
         <p>
             <label> Firstname </label>
             <input type="text" name="firstnameTxt" formControlName="firstname" required />
@@ -22,7 +22,7 @@
             <input type="text" name="companyTxt" formControlName="companyName" required />
         </p>
         <p>
-            <button type="submit" [disabled]="!clientForm.valid">Save</button>
+            <button type="submit" [disabled]="!clientForm.valid" (click)="saveClient()">Save</button>
         </p>
     </form>
 </div>
